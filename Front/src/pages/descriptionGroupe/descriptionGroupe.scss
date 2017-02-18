@@ -1,0 +1,60 @@
+descriptionGroupe-descriptionGroupe {
+
+.card-user
+{
+ position: relative;
+ text-align: center;
+}
+
+.card-bilan-positif
+{
+    position: relative;
+    text-align: right;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: #B2D9B2;
+}
+
+.card-bilan-negatif
+{
+    position: relative;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: #FF9999;
+}
+
+.card
+{
+  position: relative;
+  text-align: center;
+}
+
+.button-right{
+  display: block !important;
+  width: 100% !important;
+  text-align:right !important;
+}
+
+.depense-name{
+  display: block !important;
+  width: 100% !important;
+  text-align:left !important;
+  margin-top:15px;
+}
+
+.depense {
+  display: block !important;
+  width: 100% !important;
+  text-align:right!important;
+  margin-top:15px;
+}
+
+.badge{
+    margin-left:5px;
+    margin-right:5px;
+}
+
+}

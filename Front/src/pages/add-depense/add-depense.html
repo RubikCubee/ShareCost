@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Ajouter une dépense </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="app-design">
+<div class="add-div">
+  <ion-row>
+    <ion-col>
+      <form [formGroup]="depenseForm" (ngSubmit)="addDepense($event)" style="padding-top: 50px">
+
+        <!-- Une liste -->
+        <ion-list no-lines>
+          <ion-item>
+            Ajouter une dépense
+          </ion-item>
+          <!--  Nom de la dépense -->
+          <ion-item>
+            <ion-label stacked-label> Nom de la dépense : </ion-label>
+            <ion-input formControlName="nameDepense" type="text" placeholder="Nom de la dépense"></ion-input>
+          </ion-item>
+
+          <!--La personne qui paye la dépense-->
+          <ion-item>
+            <ion-label> Payé par : </ion-label>
+            <ion-select formControlName="userFrom">
+              <ion-option *ngFor="let user of usersInGroupe" [value]="user.username"> {{user.username}} </ion-option>
+            </ion-select>
+          </ion-item>
+
+          <!--les personnes qui ont été avancées-->
+          <ion-item>
+            <ion-label> Payé pour : </ion-label>
+            <ion-select formControlName="usersTo" multiple>
+              <ion-option *ngFor="let user of usersInGroupe" [value]="user.username"> {{user.username}} </ion-option>
+            </ion-select>
+          </ion-item>
+
+          <!--Le montant-->
+          <ion-item>
+            <ion-label stacked-label> Montant de la dépense : </ion-label>
+            <ion-input formControlName="montant" type="number" step="0.01" placeholder="Montant de la dépense"></ion-input>
+          </ion-item>
+
+        </ion-list>
+        <div>
+          <button type="submit" ion-button full color="light" class="login-button color-button"> Ajouter la dépense </button>
+        </div>
+      </form>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <!-- <button ion-button color="light" class="color-button"> Retour </button>  (click)="RetourLoginPage()" -->
+    <ion-col>
+      <p color="danger"> {{errorMessage}} </p>
+    </ion-col>
+  </ion-row>
+</div>
+</ion-content>

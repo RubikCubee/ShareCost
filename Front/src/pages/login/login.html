@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title> Authentification </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="app-design">
+  <ion-card class="login-div">
+    <ion-row>
+      <ion-col> </ion-col>
+      <ion-col class="logo">
+        <img src="../assets/img/logoSharecost.png">
+      </ion-col>
+      <ion-col> </ion-col>
+    </ion-row>
+
+    <ion-row>
+   
+      <ion-col>
+        
+        <form [formGroup]="loginForm" (ngSubmit)="login($event,username,password)" style="padding-top: 50px">
+
+          <!-- Une liste -->
+          <ion-list inset>
+
+            <!--  Nom utilisateur -->
+            <ion-item>
+              <ion-label stacked-label>
+                <ion-icon name="person"></ion-icon>
+              </ion-label>
+              <ion-input formControlName="username" type="text" placeholder="Pseudo"></ion-input>
+            </ion-item>
+
+            <!-- Mot de passe -->
+            <ion-item>
+              <ion-label stacked-label>
+                <ion-icon name="lock"></ion-icon>
+              </ion-label>
+              <ion-input formControlName="password" type="password" placeholder="Mot de passe"></ion-input>
+            </ion-item>
+          </ion-list>
+          <button ion-button full color="light" class="login-button" type="submit"> Se connecter </button>
+        </form>
+          <button ion-button full color="light" class="login-button" (click)="clickNewUser()"> Nouveau ici ? </button>
+        <p color="danger"> {{errorMessage}} </p>
+      </ion-col>
+     
+    </ion-row>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Description du groupe </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-fab right bottom>
+  <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>
+  <ion-fab-list side="top">
+    <button ion-fab color="primary" (click)="showAddUserGroupe()"><ion-icon name="person-add"></ion-icon></button>
+  </ion-fab-list>
+  <ion-fab-list side="left">
+    <button ion-fab color="primary" (click)="clickAjouterDepense(id_groupe, usersInGroupe, userName)"><ion-icon name="pricetag"></ion-icon></button>
+  </ion-fab-list>
+</ion-fab>
+
+<ion-content class="app-design">
+
+  <!--Affichage des utilisateurs dans le groupe-->
+  <ion-card class="card-user">
+    <ion-card-content>
+      <ion-badge class="badge" color="secondary" *ngFor="let user of usersInGroupe">
+        {{user.username}}
+      </ion-badge>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Le bilan  -->
+  <ion-card class="card-bilan-positif" *ngIf="IsDebtOkay">
+    <ion-card-content>
+      {{bilanMessage}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card-bilan-negatif" *ngIf="!IsDebtOkay">
+    <ion-card-content>
+      {{bilanMessage}}
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card *ngFor="let depense of depenses" class="card">
+  <ion-card-content>
+    <ion-row>
+      <!-- Image du groupe -->
+      <ion-col width-20 class="depense-name">
+       <ion-badge class="badge" color="secondary"> {{depense.fromUser}} </ion-badge>
+        <ion-icon name="arrow-forward"> </ion-icon>
+       <ion-badge class="badge" color="secondary"> {{depense.toUser}} </ion-badge>
+      </ion-col>
+
+      <ion-col width-35 class="depense-name">
+        {{depense.name}}
+      </ion-col>
+
+      <ion-col width-10 class="depense">
+        {{depense.montant}} € 
+      </ion-col>
+
+      <ion-col width-25 class="button-right">
+        <button ion-button color="danger" (click)="deleteDepense(depense)"> <ion-icon name="trash"> </ion-icon>  Supprimer </button>
+      </ion-col>
+    </ion-row>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Gestion des groupes </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="app-design">
+
+  <!-- Button d'ajout d'un groupe -->
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="showAjouterGroupe()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+
+        <!-- Affichage par carte de tous les groupes disponibles -->
+        <ion-card *ngFor="let groupe of groupes" (press)="onclickGroupe(groupe)" class="card">
+     
+          <ion-card-content>
+            <ion-row>
+              <!-- Image du groupe -->
+              <ion-col width-10>
+                <img class="image-groupe" src="../assets/img/logoGroupeDefault.jpg" >
+              </ion-col>
+
+              <ion-col width-45 class="groupe-name">        
+                    {{groupe.name}} 
+              </ion-col>
+
+              <ion-col width-10 class="nombre-users" >
+                {{groupe.nombreUsers}} <ion-icon name="people"></ion-icon>
+              </ion-col>
+
+              <ion-col width-25 class="button-right">
+                <button  ion-button color="danger" (click)="removeGroupe(groupe)"> <ion-icon name="trash"> </ion-icon>  Supprimer </button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+ 
+</ion-content>
